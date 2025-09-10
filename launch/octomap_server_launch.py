@@ -36,6 +36,8 @@ def generate_launch_description():
         DeclareLaunchArgument('color_free/b', default_value='1.0'),
         DeclareLaunchArgument('color_free/a', default_value='1.0'),
         DeclareLaunchArgument('publish_free_space', default_value='False'),
+        DeclareLaunchArgument('pointcloud_min_z', default_value='0.05'),
+        DeclareLaunchArgument('pointcloud_max_z', default_value='1.0'),
         Node(
             package='octomap_server2',
             executable='octomap_server',
@@ -67,6 +69,8 @@ def generate_launch_description():
                          'color_free/g': LaunchConfiguration('color_free/g'),
                          'color_free/b': LaunchConfiguration('color_free/b'),
                          'color_free/a': LaunchConfiguration('color_free/a'),
-                         'publish_free_space': LaunchConfiguration('publish_free_space')}]
+                         'publish_free_space': LaunchConfiguration('publish_free_space'),
+                          'pointcloud_min_z': LaunchConfiguration('pointcloud_min_z'),
+                         'pointcloud_max_z': LaunchConfiguration('pointcloud_max_z')}]
         )
     ])
