@@ -8,7 +8,7 @@ namespace octomap_server {
         Node(node_name, options),
         m_octree(NULL),
         m_maxRange(20),
-        m_worldFrameId("/map"),
+        m_worldFrameId("map"),
         m_baseFrameId("base_footprint"),
         m_useHeightMap(true),
         m_useColoredMap(false),
@@ -35,8 +35,10 @@ namespace octomap_server {
         m_compressMap(true),
         m_incrementalUpdate(false) {
 
-        rclcpp::Clock::SharedPtr clock = std::make_shared<rclcpp::Clock>(RCL_SYSTEM_TIME);
+        auto clock = this->get_clock();
         this->buffer_ = std::make_shared<tf2_ros::Buffer>(clock);
+        // rclcpp::Clock::SharedPtr clock = std::make_shared<rclcpp::Clock>(RCL_SYSTEM_TIME);
+        // this->buffer_ = std::make_shared<tf2_ros::Buffer>(clock);
         this->buffer_->setUsingDedicatedThread(true);
         this->m_tfListener = std::make_shared<tf2_ros::TransformListener>(
             *buffer_, this, false);
