@@ -11,7 +11,7 @@ Firstly make sure you have [octomap](https://github.com/OctoMap/octomap.git) ins
 
 Next, clone this ros package to the appropriate ros2 workspace
 ```bash
-$ git clone https://github.com/iKrishneel/octomap_server2.git
+$ git clone git@github.com:azaher1215/octomap_server2.git
 ```
 Clone the dependency repositories to the workspace
 ```bash
